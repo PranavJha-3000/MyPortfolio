@@ -1,0 +1,28 @@
+export type ResumeRow = { label: string; value: string };
+
+export const profile = {
+  name: "Pranav Jha",
+  established: "EST. 2020",
+  roles: ["APPLIED AI ENGINEER", "0→1 BUILDER", "SYSTEMS THINKER"],
+  headline: ["BUILDING PRODUCTS", "THAT SOLVE "],
+  /** Rendered orange-outlined, closing the second headline line. */
+  headlineAccent: "REAL PROBLEMS.",
+  intro:
+    "From data model to deploy — web applications, premium interfaces and AI features engineered past the demo, into production.",
+  aboutHeading: "THE DEVELOPER BEHIND THE BUILD",
+  aboutBody:
+    "I'm a builder at heart. I love turning ideas into real, impactful products that solve real problems — constantly learning, experimenting and shipping what matters.",
+  portraitNote: "( caught red-handed, building things )",
+  /** Drop a portrait at this path in /public to replace the placeholder frame. */
+  portrait: undefined as string | undefined,
+} as const;
+
+export const resume: ResumeRow[] = [
+  { label: "NAME", value: "Pranav Jha" },
+  { label: "ROLE", value: "Full Stack Developer · Entrepreneur" },
+  { label: "EXPERIENCE", value: "5+ years shipping web & AI products" },
+  { label: "EDUCATION", value: "B.Tech, Computer Science" },
+  { label: "TECH STACK", value: "TypeScript · React · Node.js · Python" },
+  { label: "LOCATION", value: "India · Working worldwide" },
+  { label: "CURRENT FOCUS", value: "AI-first products & premium interfaces" },
+];

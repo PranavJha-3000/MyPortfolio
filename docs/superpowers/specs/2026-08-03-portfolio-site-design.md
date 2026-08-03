@@ -18,12 +18,26 @@ The finished site is Pranav Jha's public portfolio, deployed on Vercel.
 |---|---|---|
 | Framework | Next.js 15, App Router, React 19, TypeScript | Handoff recommendation; `next/image` for the three large artworks; built-in metadata/OG |
 | Styling | Tailwind CSS v4 with `@theme` tokens | Design tokens live in one place, not scattered hex in JSX |
-| Motion | Framer Motion (reveals, masked lines) + raw rAF (cursor glow) + Lenis (smooth scroll) | Framer is overhead for a 60fps cursor lerp; Lenis is what the handoff names |
+| Motion | CSS transitions driven by IntersectionObserver + raw rAF (cursor glow) + Lenis (smooth scroll) | See note below |
 | Fonts | `next/font/google` — Anton 400, Space Grotesk 300–700, Caveat 600–700 | Self-hosted, no layout shift, no third-party request |
 | Content | Typed data files under `src/data/`, seeded with the design's placeholder copy | Swapping in real jobs/projects is a one-file edit, type-checked |
 | Missing images | `FramedImage` renders an on-brand placeholder when `src` is absent | Layout is final before real photos exist |
 | Contact form | `mailto:` as designed | No backend, no cost, works on any host |
 | Deployment | Vercel | Zero-config for Next.js |
+
+### Changed during implementation
+
+**Framer Motion was dropped.** The spec originally named it for reveals and masked
+headlines. The prototype implements every one of those with a CSS transition toggled by an
+IntersectionObserver, and matching its timings exactly is easier using the same technique than
+translating them into a different animation model. Doing so also removes a ~34 kB dependency from a
+page whose entire JS payload is 120 kB. `Reveal`, `MaskedLine` and `Artwork` therefore toggle
+Tailwind classes and inline styles against observer state.
+
+**A mobile nav was added.** Below `md` the five section links do not fit beside the wordmark and
+the CTA. The reference simply clips them, which leaves a phone visitor with no way to reach a
+section once the hero's painted nav has scrolled away. `TopNav` collapses them into a panel built
+from the same hairlines, red squares and tracked caps as the rest of the page.
 
 ## Architecture
 
