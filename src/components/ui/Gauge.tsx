@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 /** Circumference of the r=52 ring, matching the design's dasharray. */
 const CIRCUMFERENCE = 326.7;
 
@@ -9,7 +13,16 @@ type Props = {
 
 /** 104px proficiency ring with the figure set inside it. */
 export function Gauge({ percent, active }: Props) {
-  const offset = active ? CIRCUMFERENCE * (1 - percent / 100) : CIRCUMFERENCE;
+  // The first row is open before anyone interacts, so its arc would otherwise
+  // render already full. Holding it empty for one paint lets it sweep in.
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setArmed(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const filled = active && armed;
+  const offset = filled ? CIRCUMFERENCE * (1 - percent / 100) : CIRCUMFERENCE;
 
   return (
     <div className="relative h-[104px] w-[104px] flex-none">
