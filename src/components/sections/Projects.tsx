@@ -75,6 +75,22 @@ export function Projects() {
                 {project.description}
               </p>
 
+              {project.bullets && (
+                <ul className="mt-5 flex list-none flex-col gap-3 p-0">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-3">
+                      <span
+                        aria-hidden
+                        className="mt-[7px] h-[7px] w-[7px] flex-none bg-accent"
+                      />
+                      <span className="text-[15px] leading-[1.6] text-body">
+                        {bullet}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               <Chips items={project.chips} className="mt-[22px]" />
 
               <div className="mt-[30px] flex flex-wrap gap-3.5">
@@ -83,14 +99,14 @@ export function Projects() {
                   external
                   className="btn btn-sm btn-filled"
                 >
-                  LIVE DEMO
+                  {project.demoLabel ?? "LIVE DEMO"}
                 </MagneticLink>
                 <MagneticLink
                   href={project.repoUrl}
                   external
                   className="btn btn-sm btn-outline"
                 >
-                  GITHUB
+                  {project.repoLabel ?? "GITHUB"}
                 </MagneticLink>
               </div>
             </div>

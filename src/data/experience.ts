@@ -8,33 +8,34 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    period: "2024 — NOW",
-    company: "INDEPENDENT STUDIO",
-    role: "FOUNDER & FULL-STACK ENGINEER",
-    chips: ["Next.js", "LangChain", "AWS"],
+    period: "2026 — PRESENT",
+    company: "UPSTAGEX PRIVATE LIMITED",
+    role: "FOUNDER & CEO",
+    chips: ["Next.js", "Nest.js", "GCP", "Gemini"],
     bullets: [
-      "Building AI-first products end to end — two shipped, one in private beta.",
-      "Own the whole surface: brand, interface, infra and the pager.",
+      "Building India's influencer marketing platform — creator discovery, digital contracts and milestone escrow in one flow.",
+      "Shipped Xerxes AI: drafts briefs, matches creators and suggests pricing across 4,500+ vetted profiles.",
     ],
   },
   {
-    period: "2022 — 2024",
-    company: "SERIES-A SAAS",
-    role: "SENIOR FRONTEND ENGINEER",
-    chips: ["TypeScript", "React", "PostgreSQL"],
+    period: "AUG 2025 — SEP 2025",
+    company: "APP MECHANIC",
+    role: "UNREAL DEVELOPER · FREELANCE",
+    chips: ["UE5", "C++", "Blueprints", "Android Studio"],
     bullets: [
-      "Led the core dashboard rebuild — first paint down from 2.1s to 400ms.",
-      "Built the design system now used across three product lines.",
+      "Built Microdose — a vertical short-drama app in the ReelShort mould, where playable mini-games unlock the next episode.",
+      "Designed the game-to-episode unlock loop that turns watching a series into playing through it.",
+      "Shipped Unreal Engine 5 gameplay to Android: C++ and Blueprints packaged and debugged through Android Studio.",
     ],
   },
   {
-    period: "2020 — 2022",
-    company: "DIGITAL PRODUCT STUDIO",
-    role: "SOFTWARE ENGINEER",
-    chips: ["Node.js", "Express", "Docker"],
+    period: "MAR 2025 — JUN 2025",
+    company: "IDZ DIGITAL",
+    role: "SOFTWARE DEVELOPER INTERN",
+    chips: ["UE5", "C++", "Blueprints", "Meta VR Kit"],
     bullets: [
-      "Delivered 12+ client builds across fintech, health and commerce.",
-      "The engineer on call for performance, DX and the hard bugs.",
+      "Worked on Kaal Yoddha, a UE5 action-adventure set in dark Indian mythology — gameplay systems in C++ and Blueprints.",
+      "Prototyped the VR build on the Meta headset kit, adapting the PC game's mechanics for headset play.",
     ],
   },
 ];

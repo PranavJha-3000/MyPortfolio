@@ -23,8 +23,8 @@ export const skills: Skill[] = [
     chips: ["React", "Next.js", "TypeScript", "Tailwind"],
     description:
       "Component architecture, motion design and pixel discipline. I build interfaces that stream fast, feel alive and hold up under real product complexity.",
-    years: "5 YRS",
-    count: "20+",
+    years: "3 YRS",
+    count: "10+",
     countLabel: "PROJECTS BUILT",
     percent: 88,
   },
@@ -35,8 +35,8 @@ export const skills: Skill[] = [
     chips: ["Node.js", "Express", "PostgreSQL", "MongoDB"],
     description:
       "APIs designed like products: predictable, documented, observable. Data models built to survive scale — and the 3 a.m. incident.",
-    years: "5 YRS",
-    count: "15+",
+    years: "3 YRS",
+    count: "10+",
     countLabel: "PROJECTS BUILT",
     percent: 79,
   },
@@ -59,7 +59,7 @@ export const skills: Skill[] = [
     chips: ["OpenAI", "LangChain", "RAG", "Python"],
     description:
       "From prompt to production: retrieval pipelines, evals and agentic workflows that make it past the demo and into users' hands.",
-    years: "3 YRS",
+    years: "2 YRS",
     count: "8+",
     countLabel: "PROJECTS BUILT",
     percent: 71,
