@@ -7,6 +7,8 @@ export type Project = {
   chips: string[];
   /** Path under /public. Falls back to a placeholder frame when absent. */
   image?: string;
+  /** Describes the image. Not every one of these is a product shot. */
+  imageAlt?: string;
   /** Buttons render disabled until a real URL lands here. */
   demoUrl?: string;
   repoUrl?: string;
@@ -27,6 +29,9 @@ export const projects: Project[] = [
       "Points, never takes. On-device Scam Shield flags known fraud screens locally, without transmitting what it sees.",
     ],
     chips: ["Windows", "Android", "Vision Models", "On-Device AI"],
+    image: "/projects/mebius.jpg",
+    imageAlt:
+      "A Möbius band drawn as stacked line art, warm orange turning to white across the half-turn",
   },
   {
     category: "SAAS PLATFORM",
@@ -34,12 +39,13 @@ export const projects: Project[] = [
     description:
       "India's influencer marketing platform — brief to payout in one workflow brands and creators can both trust.",
     bullets: [
-      "Creator discovery across 4,500+ vetted profiles, filtered 20 ways and matched by Xerxes AI.",
+      "Creator discovery across 10 lakh+ vetted profiles, filtered 20 ways and matched by Xerxes AI.",
       "Auto-generated digital contracts backed by milestone-based escrow releases.",
       "Deliverable tracking, approvals and a permanent record of every deal.",
     ],
     chips: ["Next.js", "Nest.js", "GCP", "Gemini"],
     image: "/projects/upstagex.jpg",
+    imageAlt: "The upstageX homepage — “Run campaigns built on trust”",
     demoUrl: "https://www.upstagex.com",
     demoLabel: "WEBSITE",
     repoUrl: "https://youtu.be/kd6Ga9CpzhU?si=y93LM1rl4UwuJRNP",
@@ -56,6 +62,8 @@ export const projects: Project[] = [
     ],
     chips: ["UE5", "C++", "Blueprints", "Behavior Trees"],
     image: "/projects/sekirowho.jpg",
+    imageAlt:
+      "SekiroWHO key art — a torii gate and a glowing blade in a dark forest",
     demoUrl: "https://youtu.be/czAQO9xbij4?si=lFqFGm5pclw5WIIm",
     repoUrl: "https://gamedev-pranav.itch.io/sekirowho",
     repoLabel: "ITCH.IO",

@@ -14,7 +14,7 @@ export const experience: Experience[] = [
     chips: ["Next.js", "Nest.js", "GCP", "Gemini"],
     bullets: [
       "Building India's influencer marketing platform — creator discovery, digital contracts and milestone escrow in one flow.",
-      "Shipped Xerxes AI: drafts briefs, matches creators and suggests pricing across 4,500+ vetted profiles.",
+      "Shipped Xerxes AI: drafts briefs, matches creators and suggests pricing across 10 lakh+ vetted profiles.",
     ],
   },
   {

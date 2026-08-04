@@ -22,9 +22,13 @@ export const profile = {
 export const resume: ResumeRow[] = [
   { label: "NAME", value: "Pranav Jha" },
   { label: "ROLE", value: "Full Stack Developer · Entrepreneur" },
-  { label: "EXPERIENCE", value: "5+ years shipping web & AI products" },
-  { label: "EDUCATION", value: "B.Tech, Computer Science" },
-  { label: "TECH STACK", value: "TypeScript · React · Node.js · Python" },
+  { label: "EXPERIENCE", value: "3+ years shipping web & AI products" },
+  { label: "EDUCATION", value: "Bachelor of Technology, Computer Science" },
+  {
+    label: "TECH STACK",
+    value:
+      "TypeScript · React · Node.js · Python · Gemini · LangChain · RAG · Agents",
+  },
   { label: "LOCATION", value: "India · Working worldwide" },
   { label: "CURRENT FOCUS", value: "AI-first products & premium interfaces" },
 ];

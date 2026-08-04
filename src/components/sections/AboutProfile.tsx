@@ -75,6 +75,9 @@ export function AboutProfile() {
                   <dt className="self-center text-[11px] font-semibold tracking-[0.26em] text-accent">
                     {row.label}
                   </dt>
+                  {/* No text-pretty here — it pulls the separator onto the
+                      next line, and a row starting with "·" reads worse than
+                      one ending with it. */}
                   <dd className="m-0 text-[17px]">{row.value}</dd>
                 </div>
               ))}

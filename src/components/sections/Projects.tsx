@@ -54,7 +54,7 @@ export function Projects() {
               <TiltCard className="relative overflow-hidden border border-line-strong bg-surface">
                 <FramedImage
                   src={project.image}
-                  alt={`${project.title} — product shot`}
+                  alt={project.imageAlt ?? `${project.title} — product shot`}
                   placeholder={`${project.title} — product shot`}
                   aspect="16 / 10"
                   sizes="(max-width: 900px) 100vw, 620px"
