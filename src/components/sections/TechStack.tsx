@@ -142,8 +142,15 @@ function SkillRow({
 
       <div
         id={panelId}
-        className="ml-[94px] overflow-hidden transition-[max-height,opacity] duration-[650ms] ease-smooth max-sm:ml-0"
-        style={{ maxHeight: active ? contentHeight : 0, opacity: active ? 1 : 0 }}
+        className="ml-[94px] overflow-hidden max-sm:ml-0"
+        style={{
+          maxHeight: active ? contentHeight : 0,
+          opacity: active ? 1 : 0,
+          // The panel's height and its fade run on separate clocks: the box
+          // finishes opening after the content has already faded in.
+          transition:
+            "max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease",
+        }}
       >
         <div
           ref={contentRef}
