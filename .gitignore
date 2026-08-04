@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# secrets — never commit
+# A leading "./" matches nothing in gitignore; the anchor is a bare "/".
+/recovery-codes.txt
+
+# Source images kept on disk but not shipped — the site uses the processed
+# copies in /public/portrait.jpg and /public/projects/.
+/public/artwork/Mebius.png
+/public/artwork/My photo.png
