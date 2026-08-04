@@ -5,11 +5,23 @@ import { Chips } from "@/components/ui/Chips";
 import { Gauge } from "@/components/ui/Gauge";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { useIsTouch } from "@/hooks/useIsTouch";
 import { skills, type Skill } from "@/data/skills";
 import { cn } from "@/lib/cn";
 
 export function TechStack() {
-  const [activeId, setActiveId] = useState(skills[0].id);
+  // Null when nothing is hovered — a row is open only while the cursor is on it.
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const open = (id: string) => setActiveId(id);
+
+  // Guarded: leaving one row can fire after entering the next, and an
+  // unconditional close would immediately shut the row that just opened.
+  const close = (id: string) =>
+    setActiveId((current) => (current === id ? null : current));
+
+  const toggle = (id: string) =>
+    setActiveId((current) => (current === id ? null : id));
 
   return (
     <section className="relative overflow-hidden px-7 pt-[110px] pb-[130px]">
@@ -28,7 +40,9 @@ export function TechStack() {
               key={skill.id}
               skill={skill}
               active={skill.id === activeId}
-              onActivate={() => setActiveId(skill.id)}
+              onOpen={() => open(skill.id)}
+              onClose={() => close(skill.id)}
+              onToggle={() => toggle(skill.id)}
               isLast={index === skills.length - 1}
             />
           ))}
@@ -41,11 +55,21 @@ export function TechStack() {
 type RowProps = {
   skill: Skill;
   active: boolean;
-  onActivate: () => void;
+  onOpen: () => void;
+  onClose: () => void;
+  onToggle: () => void;
   isLast: boolean;
 };
 
-function SkillRow({ skill, active, onActivate, isLast }: RowProps) {
+function SkillRow({
+  skill,
+  active,
+  onOpen,
+  onClose,
+  onToggle,
+  isLast,
+}: RowProps) {
+  const isTouch = useIsTouch();
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -71,11 +95,20 @@ function SkillRow({ skill, active, onActivate, isLast }: RowProps) {
         "border-t border-line-soft pt-8 pb-2.5",
         isLast && "border-b",
       )}
-      onMouseEnter={onActivate}
+      onMouseEnter={isTouch ? undefined : onOpen}
+      onMouseLeave={isTouch ? undefined : onClose}
     >
       <button
         type="button"
-        onClick={onActivate}
+        // A pointer has hover; a keyboard and a finger do not. Focus stands in
+        // for hover on the keyboard, tap stands in for it on a touchscreen —
+        // without them the panel is unreachable by either.
+        //
+        // Strictly one or the other: a tap fires focus *and* click, so wiring
+        // both would open the row then immediately toggle it shut again.
+        onFocus={isTouch ? undefined : onOpen}
+        onBlur={isTouch ? undefined : onClose}
+        onClick={isTouch ? onToggle : undefined}
         aria-expanded={active}
         aria-controls={panelId}
         className="grid w-full cursor-pointer grid-cols-[70px_1fr_auto] items-baseline gap-6 text-left max-sm:grid-cols-[40px_1fr_auto] max-sm:gap-3"
