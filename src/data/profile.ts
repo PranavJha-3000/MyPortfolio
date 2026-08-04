@@ -13,8 +13,10 @@ export const profile = {
   aboutBody:
     "I'm a builder at heart. I love turning ideas into real, impactful products that solve real problems — constantly learning, experimenting and shipping what matters.",
   portraitNote: "( caught red-handed, building things )",
-  /** Drop a portrait at this path in /public to replace the placeholder frame. */
-  portrait: undefined as string | undefined,
+  /** Path under /public. Without it the frame renders a placeholder. */
+  portrait: "/portrait.jpg",
+  portraitAlt:
+    "Pranav Jha at a laptop, headphones on, giving a thumbs up mid-build",
 } as const;
 
 export const resume: ResumeRow[] = [

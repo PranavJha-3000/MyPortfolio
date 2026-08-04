@@ -28,7 +28,7 @@ export function AboutProfile() {
           <TiltCard className="relative border border-line-strong bg-surface p-[14px]">
             <FramedImage
               src={profile.portrait}
-              alt={`${profile.name} — portrait`}
+              alt={profile.portraitAlt}
               placeholder="Portrait — cinematic orange light"
               aspect="4 / 5"
               sizes="(max-width: 768px) 100vw, 400px"
