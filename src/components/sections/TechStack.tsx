@@ -105,7 +105,9 @@ function SkillRow({ skill, active, onActivate, isLast }: RowProps) {
         <span
           aria-hidden
           className={cn(
-            "text-[28px] leading-none transition-[transform,color] duration-[400ms]",
+            // rotate-45 sets the `rotate` property in Tailwind v4, so it has
+            // to be named here or the icon snaps instead of turning.
+            "text-[28px] leading-none transition-[transform,rotate,color] duration-[400ms]",
             active ? "rotate-45 text-warm" : "rotate-0 text-muted",
           )}
         >

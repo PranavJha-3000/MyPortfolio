@@ -46,7 +46,10 @@ export function Reveal({
       id,
       "data-reveal": "",
       className: cn(
-        "transition-[opacity,transform] duration-[900ms] ease-smooth",
+        // Tailwind v4 renders translate-y-* as the standalone `translate`
+        // property, not `transform`. Listing only `transform` here fades the
+        // element in but snaps it into place — the rise never animates.
+        "transition-[opacity,transform,translate] duration-[900ms] ease-smooth",
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[38px]",
         className,
       ),
